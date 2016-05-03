@@ -1,10 +1,10 @@
 package Utilis
-
 import scala.xml._
 
 object Geocoder {
 
 	private val getRequest=(url: String) =>{
+		Thread.sleep(6000)
 		XML.loadString(scala.io.Source.fromURL(url).mkString)
 	}
 
@@ -21,12 +21,7 @@ object Geocoder {
 		val xml = (getRequest(url))
 		val lon = xml \ "place" \ "@lon"
 		val lat = xml \ "place" \ "@lat"
-		(lon.toString(), lat.toString())
-	}
-
-	def main(args: Array[String]) {
-		val url = getGeocode("DIDCOT","SOUTH OXFORDSHIRE","OXFORDSHIRE")
-		println(url)
+		new Data.Geocode(lat.toString()+"0",lon.toString()+"0")
 	}
 }
 

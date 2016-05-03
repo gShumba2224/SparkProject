@@ -1,3 +1,5 @@
+import java.util.Date
+
 /**
   * Created by gman on 4/27/16.
   */
@@ -131,5 +133,10 @@ package object LA {
     }).toList
     result
   }
+}
+
+package object Data{
+
+  case class Geocode (latitude:String,longitude:String)
 }
 
